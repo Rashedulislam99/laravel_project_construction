@@ -1,6 +1,8 @@
 
-<!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+@extends("layout.erp.app")
+@section("content")
+
 <div class="container mt-4">
     <h2>Create New Supplier</h2>
 <form action="{{ url('system/suppliers') }}" method="POST">
@@ -8,14 +10,14 @@
     <!-- Name -->
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" name="name" class="form-control" id="name" 
+        <input type="text" name="name" class="form-control" id="name"
                value="{{ old('name') }}" required>
     </div>
 
     <!-- Email -->
     <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" name="email" class="form-control" id="email" 
+        <input type="email" name="email" class="form-control" id="email"
                value="{{ old('email') }}">
         <div class="form-text">We'll never share your email with anyone else.</div>
     </div>
@@ -23,7 +25,7 @@
     <!-- Phone -->
     <div class="mb-3">
         <label for="phone" class="form-label">Phone</label>
-        <input type="text" name="phone" class="form-control" id="phone" 
+        <input type="text" name="phone" class="form-control" id="phone"
                value="{{ old('phone') }}">
     </div>
 
@@ -42,3 +44,5 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+
+@endsection

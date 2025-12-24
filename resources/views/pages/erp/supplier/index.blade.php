@@ -1,15 +1,23 @@
 @extends('layout.erp.app')
-@section("css")
-<style>
-     td{
-        text-align: center !important;
-    }
-    th{
-        text-align: center !important;
-    }
-</style>
+@section('css')
+    <style>
+        td {
+            text-align: center !important;
+        }
+
+        th {
+            text-align: center !important;
+        }
+    </style>
 @endsection
 @section('content')
+    <form action="{{ URL('system/suppliers') }}" method="GET">
+        <div class="mb-3">
+            <input value="{{ request('search') }}" type="text" class="form-control" id="search" name="search"
+                placeholder="Search data">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
 
     <div class="container">
         <div class="table-responsive">
@@ -29,7 +37,7 @@
                             <th scope="row">{{ $supplier->id }}</th>
                             <td>
 
-                                    {{ $supplier->name }}
+                                {{ $supplier->name }}
 
                             </td>
                             <td>{{ $supplier->email ?? '-' }}</td>
@@ -41,7 +49,7 @@
                                     Edit
                                 </a>
 
-    <a class="btn btn-info" href="{{ url("system/suppliers/$supplier->id") }}">
+                                <a class="btn btn-info" href="{{ url("system/suppliers/$supplier->id") }}">
                                     view
                                 </a>
                                 <form action="{{ url('system/suppliers', $supplier->id) }}" method="POST" class="d-inline">
@@ -66,6 +74,7 @@
     </div>
 
     <div class="d-flex justify-content-center mt-3">
-        {{ $suppliers->links() }}
+        {{ $suppliers->appends(request()->query())->links() }}
     </div>
 @endsection
+
