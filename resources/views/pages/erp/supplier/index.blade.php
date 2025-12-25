@@ -11,13 +11,17 @@
     </style>
 @endsection
 @section('content')
+
     <form action="{{ URL('system/suppliers') }}" method="GET">
-        <div class="mb-3">
+        <div class="mb-3 d-flex">
             <input value="{{ request('search') }}" type="text" class="form-control" id="search" name="search"
                 placeholder="Search data">
             <button type="submit" class="btn btn-primary">Search</button>
         </div>
     </form>
+
+   
+<a href="{{ route('suppliers.create') }}">Add Supplier</a>
 
     <div class="container">
         <div class="table-responsive">
@@ -35,11 +39,7 @@
                     @forelse ($suppliers as $supplier)
                         <tr>
                             <th scope="row">{{ $supplier->id }}</th>
-                            <td>
-
-                                {{ $supplier->name }}
-
-                            </td>
+                            <td> {{ $supplier->name }}</td>
                             <td>{{ $supplier->email ?? '-' }}</td>
                             <td>{{ $supplier->phone ?? '-' }}</td>
                             <td class="text-center">
