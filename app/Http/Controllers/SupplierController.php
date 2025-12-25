@@ -11,9 +11,23 @@ class SupplierController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $suppliers= Supplier::select("id","name","email","phone")->paginate(5);
+        //$suppliers= Supplier::select("id","name","email","phone")->paginate(5);
+ $suppliers = Supplier::orderBy("id", "desc")->paginate(8);
+        // $customers = Customer::orderBy("id", "desc")->paginate(8);
+
+
+        $suppliers = Supplier::when($request->search, function($query) use($request) {
+          return $query->whereAny([
+            "name",
+            "email",
+             "id",
+             "phone"
+        ], "LIKE" , "%".$request->search."%" );
+
+        })->orderBy("id", "desc")->paginate(8);
+
       return view("pages.erp.supplier.index", ["suppliers"=>$suppliers]);
 
 
