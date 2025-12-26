@@ -2,11 +2,11 @@
 @section('css')
     <style>
         td {
-            text-align: center !important;
+            text-align: left !important;
         }
 
         th {
-            text-align: center !important;
+            text-align: left !important;
         }
         thead th {
             color: white!important;

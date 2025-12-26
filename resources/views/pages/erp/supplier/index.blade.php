@@ -44,14 +44,9 @@
                             <td>{{ $supplier->phone ?? '-' }}</td>
                             <td class="text-center">
 
-                                <a href="{{ url("system/suppliers/$supplier->id/edit") }}"
-                                    class="btn btn-sm btn-warning me-1">
-                                    Edit
-                                </a>
+                                <a href="{{ url("system/suppliers/$supplier->id/edit") }}" class="btn btn-sm btn-warning me-1">Edit </a>
 
-                                <a class="btn btn-info" href="{{ url("system/suppliers/$supplier->id") }}">
-                                    view
-                                </a>
+                                <a class="btn btn-info" href="{{ url("system/suppliers/$supplier->id") }}">view </a>
                                 <form action="{{ url('system/suppliers', $supplier->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')

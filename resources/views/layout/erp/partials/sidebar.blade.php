@@ -95,6 +95,30 @@
                 </div>
             </div>
 
+            <!-- Task Report -->
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
+                    data-target="ui-sub-menu4">
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">assessment</i>
+                  Task Report
+                    <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+                </a>
+                <div class="mdc-expansion-panel" id="ui-sub-menu4">
+                    <nav class="mdc-list mdc-drawer-submenu">
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/tasks') }}">
+                                Tasks List
+                            </a>
+                        </div>
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/tasks/create') }}">
+                                Task Create
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
             {{-- .mdc-drawer .mdc-drawer__content .mdc-drawer-menu .mdc-drawer-item .mdc-drawer-link.active {
             background: #fff;         ai code  ta ace style.css a white color change korte parbo --}}
 
