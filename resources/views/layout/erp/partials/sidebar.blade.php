@@ -118,6 +118,52 @@
                     </nav>
                 </div>
             </div>
+            <!-- employees Report -->
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
+                    data-target="ui-sub-menu5">
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">people</i>
+                  Employee Report
+                    <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+                </a>
+                <div class="mdc-expansion-panel" id="ui-sub-menu5">
+                    <nav class="mdc-list mdc-drawer-submenu">
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/employees') }}">
+                               Employees List
+                            </a>
+                        </div>
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/employees/create') }}">
+                                Employees Create
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- Task Details Report -->
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
+                    data-target="ui-sub-menu6">
+                   <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">description</i>
+                  Task Details Report
+                    <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+                </a>
+                <div class="mdc-expansion-panel" id="ui-sub-menu6">
+                    <nav class="mdc-list mdc-drawer-submenu">
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/task_details') }}">
+                             Task Details List
+                            </a>
+                        </div>
+                        <!-- <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/employees/create') }}">
+                                Employees Create
+                            </a>
+                        </div> -->
+                    </nav>
+                </div>
+            </div>
 
             {{-- .mdc-drawer .mdc-drawer__content .mdc-drawer-menu .mdc-drawer-item .mdc-drawer-link.active {
             background: #fff;         ai code  ta ace style.css a white color change korte parbo --}}
