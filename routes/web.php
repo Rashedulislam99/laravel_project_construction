@@ -39,3 +39,6 @@ Route::prefix('/system')->group(function () {
 Route::prefix('/system')->group(function(){
     Route::resource('task_details',TaskDetailController::class);
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
