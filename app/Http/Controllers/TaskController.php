@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -24,7 +25,7 @@ class TaskController extends Controller
         })->orderBy("id","desc")->paginate(8);
         return view("pages.erp.task.index",["tasks"=>$tasks]);
 
-        
+
     }
 
     /**
@@ -32,7 +33,9 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view("pages.erp.task.create");
+        $projects = Project::all();
+        $tasks = Task::all();
+        return view("pages.erp.task.create",compact('tasks', 'projects'));
     }
 
     /**
@@ -66,7 +69,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-         
+
         return view("pages.erp.task.edit", compact('task'));
     }
 
@@ -83,7 +86,7 @@ class TaskController extends Controller
         $task->end_date=$request->end_date;
         $task->status_id=$request->status_id;
         $task->supervisor_id=$request->supervisor_id;
-    
+
        $task->save();
        return redirect("system/tasks")->with("success", "task updated
        Successfully");

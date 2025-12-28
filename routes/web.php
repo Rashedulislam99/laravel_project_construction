@@ -9,13 +9,19 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StatuseController;
 use App\Http\Controllers\TaskDetailController;
+use App\Http\Controllers\UserController;
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::middleware(['auth'])->group(function () {
+
+
 
 Route::get('/', function () {
     return view("pages.erp.dashboard.index");
@@ -68,8 +74,19 @@ Route::prefix('/system')->group(function(){
     Route::resource('roles',RoleController::class);
 });
 
+Route::prefix('/system')->group(function(){
+    Route::resource('users',UserController::class);
+});
+
+Route::prefix('/system')->group(function(){
+    Route::resource('statuses',StatuseController::class);
+});
 
 
-// Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

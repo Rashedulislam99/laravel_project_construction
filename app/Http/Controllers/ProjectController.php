@@ -12,17 +12,19 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-      
+
         $projects = Project::when($request->search, function($query) use($request){
             return $query->whereAny([
-               "name",  
-               "place", 
+               "name",
+               "place",
                "budget"
             ], "LIKE","%".$request->search."%");
         })->orderBy("id","desc")->paginate(8);
         return view('pages.erp.project.index', ["projects"=>$projects]);
 
-      //  return view("pages.erp.supplier.index", ["suppliers"=>$suppliers]);
+       return view("pages.erp.supplier.index", ["suppliers"=>$suppliers]);
+    //   $projects = Project::with("tasks")->orderBy("id", "desc")->get();
+    //   return $projects;
     }
 
     /**
@@ -52,15 +54,17 @@ class ProjectController extends Controller
 
 
     }
-    
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        $project= Project::find($id);
-    
+        // $project= Project::with("tasks:id,name")->get;
+         $project = Project::with('tasks:id,name,project_id')->find($id);
+        //  return $projects;
+
         return view("pages.erp.project.view", compact('project'));
     }
 
@@ -71,7 +75,7 @@ class ProjectController extends Controller
     {
          return view("pages.erp.project.edit", compact('project'));
     }
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -79,7 +83,7 @@ class ProjectController extends Controller
     public function update(Request $request, string $id)
 
 {
-    $project = Project::findOrFail($id); // 
+    $project = Project::findOrFail($id); //
     $project->name        = $request->name;
     $project->description = $request->description;
     $project->status_id   = $request->status_id;

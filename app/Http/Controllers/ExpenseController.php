@@ -12,8 +12,9 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $expense =Expense::orderBy("id", "desc")->paginate(8);
-    return view("pages.erp.expense.index", ["expenses" => $expense]);
+
+        $expenses =Expense::orderBy("id", "desc")->paginate(8);
+    return view("pages.erp.expense.index", ["expenses" => $expenses]);
     }
 
     /**

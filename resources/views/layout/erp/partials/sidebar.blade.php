@@ -52,7 +52,7 @@
                     data-target="ui-sub-menu2">
                     <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
                         aria-hidden="true">dashboard</i>
-                   Supplier Report
+                    Supplier Report
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu2">
@@ -75,8 +75,9 @@
             <div class="mdc-list-item mdc-drawer-item">
                 <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
                     data-target="ui-sub-menu3">
-                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true"> assignment </i>
-                  Project Report
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">
+                        assignment </i>
+                    Project Report
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu3">
@@ -99,8 +100,9 @@
             <div class="mdc-list-item mdc-drawer-item">
                 <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
                     data-target="ui-sub-menu4">
-                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">assessment</i>
-                  Task Report
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                        aria-hidden="true">assessment</i>
+                    Task Report
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu4">
@@ -122,15 +124,16 @@
             <div class="mdc-list-item mdc-drawer-item">
                 <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
                     data-target="ui-sub-menu5">
-                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">people</i>
-                  Employee Report
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                        aria-hidden="true">people</i>
+                    Employee Report
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu5">
                     <nav class="mdc-list mdc-drawer-submenu">
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/employees') }}">
-                               Employees List
+                                Employees List
                             </a>
                         </div>
                         <div class="mdc-list-item mdc-drawer-item">
@@ -145,15 +148,16 @@
             <div class="mdc-list-item mdc-drawer-item">
                 <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
                     data-target="ui-sub-menu6">
-                   <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">description</i>
-                  Task Details Report
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon"
+                        aria-hidden="true">description</i>
+                    Task Details Report
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu6">
                     <nav class="mdc-list mdc-drawer-submenu">
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/task_details') }}">
-                             Task Details List
+                                Task Details List
                             </a>
                         </div>
                         <div class="mdc-list-item mdc-drawer-item">
@@ -164,15 +168,16 @@
                     </nav>
                 </div>
             </div>
-            
-            
+
+
             <!-- Employees Task Report -->
-        
+
             <div class="mdc-list-item mdc-drawer-item">
                 <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
                     data-target="ui-sub-menu7">
-                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true"> assignment </i>
-                  Employees Task R
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">
+                        assignment </i>
+                    Employees Task R
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu7">
@@ -184,7 +189,7 @@
                         </div>
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/employees_tasks/create') }}">
-                               Employees Create
+                                Employees Create
                             </a>
                         </div>
                     </nav>
@@ -192,13 +197,14 @@
             </div>
 
             <!-- materials Report -->
-        
+
             <div class="mdc-list-item mdc-drawer-item">
                 <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
                     data-target="ui-sub-menu8">
-                     <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true"> home </i>
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">
+                        home </i>
 
-                  Materials Report 
+                    Materials Report
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu8">
@@ -210,7 +216,7 @@
                         </div>
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/materials/create') }}">
-                               Add Material
+                                Add Material
                             </a>
                         </div>
                     </nav>
@@ -219,24 +225,25 @@
 
 
             <!-- Inventory Report -->
-        
+
             <div class="mdc-list-item mdc-drawer-item">
                 <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
                     data-target="ui-sub-menu9">
- <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true"> home </i>
-                  Inventory Report 
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">
+                        home </i>
+                    Inventory Report
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu9">
                     <nav class="mdc-list mdc-drawer-submenu">
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/inventorys') }}">
-                               Inventory  List
+                                Inventory List
                             </a>
                         </div>
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/inventorys/create') }}">
-                               Add Inventory 
+                                Add Inventory
                             </a>
                         </div>
                     </nav>
@@ -245,24 +252,25 @@
 
 
             <!-- Inventory Report -->
-        
+
             <div class="mdc-list-item mdc-drawer-item">
                 <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
                     data-target="ui-sub-menu10">
- <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true"> home </i>
-                  Expenses Report 
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">
+                        home </i>
+                    Expenses Report
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu10">
                     <nav class="mdc-list mdc-drawer-submenu">
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/expenses') }}">
-                              Expense List
+                                Expense List
                             </a>
                         </div>
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/expenses/create') }}">
-                               Add Expense
+                                Add Expense
                             </a>
                         </div>
                     </nav>
@@ -270,7 +278,57 @@
             </div>
 
 
-            
+            <!-- roles Report -->
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
+                    data-target="ui-sub-menu11">
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">
+                        home </i>
+                    Role Report
+                    <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+                </a>
+                <div class="mdc-expansion-panel" id="ui-sub-menu11">
+                    <nav class="mdc-list mdc-drawer-submenu">
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/roles') }}">
+                        Role List
+                            </a>
+                        </div>
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/roles/create') }}">
+                                Add Role
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- user Report -->
+            <div class="mdc-list-item mdc-drawer-item">
+                <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel"
+                    data-target="ui-sub-menu12">
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">
+                        home </i>
+                 user Report
+                    <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+                </a>
+                <div class="mdc-expansion-panel" id="ui-sub-menu12">
+                    <nav class="mdc-list mdc-drawer-submenu">
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/users') }}">
+                    User List
+                            </a>
+                        </div>
+                        <div class="mdc-list-item mdc-drawer-item">
+                            <a class="mdc-drawer-link" href="{{ url('system/users/create') }}">
+                                Add User
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+
+
 
             {{-- .mdc-drawer .mdc-drawer__content .mdc-drawer-menu .mdc-drawer-item .mdc-drawer-link.active {
             background: #fff;         ai code  ta ace style.css a white color change korte parbo --}}
