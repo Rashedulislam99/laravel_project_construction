@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\Expense;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class ExpenseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $roles = Role::orderBy("id", "desc")->paginate(8);
-    return view("pages.erp.role.index", ["roles" => $roles]);
+        $expense =Expense::orderBy("id", "desc")->paginate(8);
+    return view("pages.erp.expense.index", ["expenses" => $expense]);
     }
 
     /**
@@ -21,7 +21,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view("pages.erp.role.create");
+        return view("pages.erp.expense.create");
     }
 
     /**
@@ -35,7 +35,7 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Expense $expense)
     {
         //
     }
@@ -43,7 +43,7 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Expense $expense)
     {
         //
     }
@@ -51,7 +51,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Expense $expense)
     {
         //
     }
@@ -59,7 +59,7 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Expense $expense)
     {
         //
     }

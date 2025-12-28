@@ -2,26 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\employees_task;
+use App\Models\EmployeesTask; 
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+
+
+class EmployeesTaskController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+   public function index()
     {
-        $roles = Role::orderBy("id", "desc")->paginate(8);
-    return view("pages.erp.role.index", ["roles" => $roles]);
+        $employees_tasks = employees_task::orderBy("id", "desc")->paginate(8);
+        return view("pages.erp.employee_task.index", ["employees_tasks" => $employees_tasks ]);
     }
-
+  
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view("pages.erp.role.create");
+        return view ("pages.erp.employee_task.create");
     }
 
     /**
@@ -35,7 +38,7 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(employees_task $employees_task)
     {
         //
     }
@@ -43,7 +46,7 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(employees_task $employees_task)
     {
         //
     }
@@ -51,7 +54,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, employees_task $employees_task)
     {
         //
     }
@@ -59,7 +62,7 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(employees_task $employees_task)
     {
         //
     }

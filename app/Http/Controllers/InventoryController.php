@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\Inventory;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class InventoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $roles = Role::orderBy("id", "desc")->paginate(8);
-    return view("pages.erp.role.index", ["roles" => $roles]);
-    }
+    
+   public function index()
+{
+    $inventorys = Inventory::orderBy("id", "desc")->paginate(8);
+    return view("pages.erp.inventory.index", ["inventorys" => $inventorys]);
+}
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view("pages.erp.role.create");
+        return view("pages.erp.inventory.create");
     }
 
     /**
@@ -35,9 +36,10 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+     public function show(string $id)
     {
-        //
+       $inventorys= Inventory::find($id);
+        return view("pages.erp.inventory.view", compact('inventorys'));
     }
 
     /**

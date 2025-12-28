@@ -32,7 +32,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view("pages.erp.tasks.create");
+        return view("pages.erp.task.create");
     }
 
     /**

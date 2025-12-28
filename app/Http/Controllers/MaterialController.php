@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\material;
+use Illuminate\Foundation\Mix;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $roles = Role::orderBy("id", "desc")->paginate(8);
-    return view("pages.erp.role.index", ["roles" => $roles]);
+        $materials = Material::orderBy("id", "desc")->paginate(8);
+        return view("pages.erp.material.index", ["material" => $materials]);
     }
 
     /**
@@ -21,7 +22,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view("pages.erp.role.create");
+        return view("pages.erp.material.create");
     }
 
     /**
@@ -37,13 +38,14 @@ class RoleController extends Controller
      */
     public function show(string $id)
     {
-        //
+       $material= material::find($id);
+        return view("pages.erp.material.view", compact('material'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Material $materials)
     {
         //
     }
@@ -51,7 +53,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Material $materials)
     {
         //
     }
@@ -59,7 +61,7 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Material $materials)
     {
         //
     }
