@@ -1,9 +1,25 @@
 @extends("layout.erp.app")
+@section('css')
+    <style>
+        td {
+            text-align: left !important;
+        }
+
+        th {
+            text-align: left !important;
+        }
+        thead th {
+            color: white!important;
+            text-align: center !important;
+        }
+    </style>
+
+@endsection
 
 @section("content")
 
 @php
-//  dd($project->toArray());
+// dd($project->toArray());
 @endphp
 
 

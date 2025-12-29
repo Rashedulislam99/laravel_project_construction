@@ -23,8 +23,8 @@ class ProjectController extends Controller
         return view('pages.erp.project.index', ["projects"=>$projects]);
 
        return view("pages.erp.supplier.index", ["suppliers"=>$suppliers]);
-    //   $projects = Project::with("tasks")->orderBy("id", "desc")->get();
-    //   return $projects;
+    //  $projects = Project::with("tasks")->orderBy("id", "desc")->get();
+    //  return $projects;
     }
 
     /**
