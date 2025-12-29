@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TaskController;
@@ -42,9 +43,16 @@ Route::prefix('/system')->group(function () {
     Route::resource('tasks', TaskController::class);
 });
 
-Route::prefix('/system')->group(function () {
-    Route::resource('employees', EmployeeController::class);
-});
+// Route::prefix('/system')  ->group(function () {
+//     Route::resource('employees', EmployeeController::class);
+// });
+
+Route::middleware(['auth', 'admin'])->prefix('system')
+->group(function () {
+
+        Route::resource('employees', EmployeeController::class);
+
+    });
 
 
 Route::prefix('/system')->group(function(){
@@ -89,4 +97,6 @@ Route::prefix('/system')->group(function(){
 
 Auth::routes();
 
+Route::match(['get', 'post'], '/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

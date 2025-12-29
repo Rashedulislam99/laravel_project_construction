@@ -291,7 +291,7 @@
                     <nav class="mdc-list mdc-drawer-submenu">
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/roles') }}">
-                        Role List
+                                Role List
                             </a>
                         </div>
                         <div class="mdc-list-item mdc-drawer-item">
@@ -308,14 +308,14 @@
                     data-target="ui-sub-menu12">
                     <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">
                         home </i>
-                 user Report
+                    user Report
                     <i class="mdc-drawer-arrow material-icons">chevron_right</i>
                 </a>
                 <div class="mdc-expansion-panel" id="ui-sub-menu12">
                     <nav class="mdc-list mdc-drawer-submenu">
                         <div class="mdc-list-item mdc-drawer-item">
                             <a class="mdc-drawer-link" href="{{ url('system/users') }}">
-                    User List
+                                User List
                             </a>
                         </div>
                         <div class="mdc-list-item mdc-drawer-item">
@@ -436,10 +436,18 @@
         </nav>
     </div>
     <div class="profile-actions">
-        <a href="javascript:;">Settings</a>
-        <span class="divider"></span>
-        <a href="javascript:;">Logout</a>
-    </div>
+    <a href="javascript:;">Settings</a>
+    <span class="divider"></span>
+
+    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        Logout
+    </a>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+        @csrf
+    </form>
+</div>
+
     {{-- <div class="mdc-card premium-card">
           <div class="d-flex align-items-center">
             <div class="mdc-card icon-card box-shadow-0">
