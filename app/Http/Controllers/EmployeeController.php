@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserNotification;
 use App\Models\Employee;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmployeeController extends Controller
 {
@@ -48,8 +50,8 @@ class EmployeeController extends Controller
     //    $employee->photo= $request->photo;
     //    $employee->active= $request->active;
     //    $employee->password= $request->password;
-       
-    
+
+
     //    $employee->save();
     //    return redirect("system/employees")->with("success", "employee Save
     //    Successfully");
@@ -89,6 +91,8 @@ class EmployeeController extends Controller
     $employee->password  = bcrypt($request->password);
     $employee->save();
 
+    Mail::to( $request->email)->send(new UserNotification(  $employee));
+
     return redirect()->route('employees.index')
         ->with('success', 'Employee created successfully');
 }
@@ -112,7 +116,7 @@ class EmployeeController extends Controller
     $roles = Role::all(); // সব role fetch করছো dropdown এর জন্য
     return view('pages.erp.employee.edit', compact('employee', 'roles'));
 }
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -175,7 +179,7 @@ class EmployeeController extends Controller
 }
 
 
-       
+
 
 
 
@@ -186,4 +190,6 @@ class EmployeeController extends Controller
     {
         //
     }
+
+
 }
