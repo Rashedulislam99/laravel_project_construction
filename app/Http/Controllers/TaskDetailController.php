@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Material;
+use App\Models\Project;
 use App\Models\TaskDetail;
 use Illuminate\Http\Request;
 
@@ -65,4 +67,14 @@ class TaskDetailController extends Controller
     {
         //
     }
+
+
+    public function material(){
+    return $this->belongsTo(Material::class);
+}
+
+public function project(){
+    return $this->belongsTo(Project::class);
+}
+
 }

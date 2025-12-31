@@ -1,94 +1,161 @@
 @extends('layout.erp.app')
+
 @section('content')
+<div class="container mt-4">
+    <h2>Create Task</h2>
 
-  <h2>Create Project Tasks</h2>
+    <form action="{{ route('tasks.store') }}" method="POST">
+        @csrf
 
-  <form id="projectForm">
-    <div class="mb-3">
-      <label for="projectName" class="form-label">Project Name</label>
-     <select name="project_id" class="form-select me-2 task-dropdown" required>
-          @foreach ($projects as $project )
-             <option value="{{$project->id}}">{{$project->name}}</option>
-          @endforeach
+        {{-- Task Info --}}
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
 
-        </select>
-    </div>
+        <div class="mb-3">
+            <label>Project</label>
+            <select name="project_id" class="form-control" required>
+                <option value="">-- Select Project --</option>
+                @foreach($projects as $project)
+                    <option value="{{ $project->id }}">{{ $project->name }}</option>
+                @endforeach
+            </select>
+        </div>
 
-    <div id="tasksContainer">
-      <div class="mb-3 task-row d-flex align-items-center">
-        <select name="task_id" class="form-select me-2 task-dropdown" required>
-          @foreach ($tasks as $task )
-             <option value="{{$task->id}}">{{$task->name}}</option>
-          @endforeach
+        <div class="mb-3">
+            <label>Status</label>
+            <select name="status_id" class="form-control" required>
+                <option value="">-- Select Status --</option>
+                @foreach($statuses as $status)
+                    <option value="{{ $status->id }}">{{ $status->name }}</option>
+                @endforeach
+            </select>
+        </div>
 
-        </select>
-        <button type="button" class="btn btn-danger btn-sm remove-task">Remove</button>
-      </div>
-    </div>
+        <div class="mb-3">
+            <label>Supervisor</label>
+            <select name="supervisor_id" class="form-control" required>
+                <option value="">-- Select Supervisor --</option>
+                @foreach($supervisors as $supervisor)
+                    <option value="{{ $supervisor->id }}">{{ $supervisor->name }}</option>
+                @endforeach
+            </select>
+        </div>
 
-    <button type="button" id="addTask" class="btn btn-primary mb-3">Add Task</button>
-    <br>
-    <button type="submit" class="btn btn-success">Save Project</button>
-  </form>
+        <div class="mb-3">
+            <label>Phase</label>
+            <select name="phase_id" class="form-control">
+                <option value="">-- Select Phase --</option>
+                @foreach($phases as $phase)
+                    <option value="{{ $phase->id }}">{{ $phase->name }}</option>
+                @endforeach
+            </select>
+        </div>
 
-  <div id="result" class="mt-4"></div>
+        <div class="mb-3">
+            <label>Start Date</label>
+            <input type="date" name="start_date" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>End Date</label>
+            <input type="date" name="end_date" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Manpower</label>
+            <input type="number" name="manpower" class="form-control" required>
+        </div>
+
+        {{-- Task Details / Materials --}}
+        <hr>
+        <h5>Task Materials / Details</h5>
+
+        <table class="table table-bordered" id="materials_table">
+    <thead>
+        <tr>
+            <th>Material</th>
+            <th>Quantity</th>
+            <th>Supplier</th>
+            <th>
+                <button type="button" id="add_row" class="btn btn-success btn-sm">Add</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <select name="materials[0][material_id]" class="form-control material-select" required>
+                    <option value="">-- Select Material --</option>
+                    @foreach($materials as $material)
+                        <option value="{{ $material->id }}">{{ $material->name }}</option>
+                    @endforeach
+                </select>
+            </td>
+            <td>
+                <input type="number" name="materials[0][quantity]" class="form-control" required>
+            </td>
+            <td>
+                <select name="materials[0][supplier_id]" class="form-control supplier-select" required>
+                    <option value="">-- Select Supplier --</option>
+                    @foreach($suppliers as $supplier)
+                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                    @endforeach
+                </select>
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+        <button type="submit" class="btn btn-primary mt-2">Save Task</button>
+    </form>
 </div>
 
-
-
-
-
-
-
-
-
-
-@endsection
-
+{{-- Dynamic JS --}}
 @section('js')
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const tasksContainer = document.getElementById("tasksContainer");
-  const addTaskBtn = document.getElementById("addTask");
+let rowIndex = 1;
 
-  // Add new task row
-  addTaskBtn.addEventListener("click", () => {
-    const taskRow = document.createElement("div");
-    taskRow.classList.add("mb-3", "task-row", "d-flex", "align-items-center");
-    taskRow.innerHTML = `
-      <select class="form-select me-2 task-dropdown" required>
-        <option value="">Select Task</option>
-        <option value="Design">Design</option>
-        <option value="Development">Development</option>
-        <option value="Testing">Testing</option>
-        <option value="Deployment">Deployment</option>
-      </select>
-      <button type="button" class="btn btn-danger btn-sm remove-task">Remove</button>
+document.getElementById('add_row').addEventListener('click', function(){
+    let table = document.getElementById('materials_table').getElementsByTagName('tbody')[0];
+    let newRow = table.insertRow();
+    newRow.innerHTML = `
+        <td>
+            <select name="materials[${rowIndex}][material_id]" class="form-control material-select" required>
+                <option value="">-- Select Material --</option>
+                @foreach($materials as $material)
+                    <option value="{{ $material->id }}">{{ $material->name }}</option>
+                @endforeach
+            </select>
+        </td>
+        <td>
+            <input type="number" name="materials[${rowIndex}][quantity]" class="form-control" required>
+        </td>
+        <td>
+            <select name="materials[${rowIndex}][supplier_id]" class="form-control supplier-select" required>
+                <option value="">-- Select Supplier --</option>
+                @foreach($suppliers as $supplier)
+                    <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                @endforeach
+            </select>
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger btn-sm remove_row">Remove</button>
+        </td>
     `;
-    tasksContainer.appendChild(taskRow);
-
-    // Add remove functionality
-    taskRow.querySelector(".remove-task").addEventListener("click", () => {
-      taskRow.remove();
-    });
-  });
-
-  // Remove task row functionality for initial row
-  tasksContainer.querySelector(".remove-task").addEventListener("click", function() {
-    this.parentElement.remove();
-  });
-
-  // Handle form submission
-  document.getElementById("projectForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const projectName = document.getElementById("projectName").value;
-    const tasks = Array.from(document.querySelectorAll(".task-dropdown")).map(t => t.value);
-    const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = `<h5>Project: ${projectName}</h5><p>Tasks: ${tasks.join(", ")}</p>`;
-  });
+    rowIndex++;
 });
-</script>
 
+document.addEventListener('click', function(e){
+    if(e.target && e.target.classList.contains('remove_row')){
+        e.target.closest('tr').remove();
+    }
+});
+
+</script>
+@endsection
 
 @endsection

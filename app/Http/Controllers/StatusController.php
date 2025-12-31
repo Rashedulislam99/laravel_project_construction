@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Statuse;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
-class StatuseController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       $statuse = Statuse::orderBy("id", "desc")->paginate(8);
-        return view("pages.erp.statuse.index", ["Statuse" => $statuse]);
+       $Status = Status::orderBy("id", "desc")->paginate(8);
+        return view("pages.erp.Status.index", ["Status" => $Status]);
     }
 
     /**
@@ -35,7 +35,7 @@ class StatuseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Statuse $statuse)
+    public function show(Status $Status)
     {
         //
     }
@@ -43,7 +43,7 @@ class StatuseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Statuse $statuse)
+    public function edit(Status $Status)
     {
         //
     }
@@ -51,7 +51,7 @@ class StatuseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Statuse $statuse)
+    public function update(Request $request, Status $Status)
     {
         //
     }
@@ -59,7 +59,7 @@ class StatuseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Statuse $statuse)
+    public function destroy(Status $Status)
     {
         //
     }

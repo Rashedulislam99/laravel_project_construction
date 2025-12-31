@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('materials', function (Blueprint $table) {
            $table->id();                       
-            $table->unsignedBigInteger('vendor_id'); 
+            $table->unsignedBigInteger('supplier_id'); 
             $table->string('name');             
             $table->string('unit');             
             $table->decimal('price_per_unit', 10, 2); 
