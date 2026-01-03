@@ -9,7 +9,7 @@
             text-align: left !important;
         }
         thead th {
-            color: white!important;
+            color: rgb(0, 0, 0)!important;
             text-align: center !important;
         }
     </style>

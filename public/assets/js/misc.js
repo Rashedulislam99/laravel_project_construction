@@ -1,3 +1,6 @@
+
+//harun vai ar kaj
+
 (function ($) {
   'use strict';
   $(function () {
@@ -15,13 +18,17 @@
     // Initially collapsed drawer in below desktop
     if(window.matchMedia('(max-width: 991px)').matches) {
       if(document.querySelector('.mdc-drawer.mdc-drawer--dismissible').classList.contains('mdc-drawer--open')) {
-        document.querySelector('.mdc-drawer.mdc-drawer--dismissible').classList.remove('mdc-drawer--open'); 
+        document.querySelector('.mdc-drawer.mdc-drawer--dismissible').classList.remove('mdc-drawer--open');
       }
     }
 
     //Add active class to nav-link based on url dynamically
     //Active class can be hard coded directly in html file also as required
     var current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
+    // CLOSE ALL SUB MENUS FIRST
+$('.mdc-expansion-panel').hide();
+$('.mdc-expansion-panel-link').removeClass('expanded');
+
     $('.mdc-drawer-item .mdc-drawer-link', sidebar).each(function () {
       var $this = $(this);
       if (current === "") {
@@ -35,11 +42,21 @@
       } else {
         //for other url
         if ($this.attr('href').indexOf(current) !== -1) {
-          $(this).addClass('active');
-          if ($(this).parents('.mdc-expansion-panel').length) {
-            $(this).closest('.mdc-expansion-panel').addClass('expanded'); 
-            $(this).closest('.mdc-expansion-panel').show();
-          }
+        $(this)
+      .closest('.mdc-drawer-item')
+      .addClass('mdc-list-item--activated');
+
+    if ($(this).parents('.mdc-expansion-panel').length) {
+
+        // CLOSE OTHERS (important)
+        $('.mdc-expansion-panel').not($(this).closest('.mdc-expansion-panel')).hide();
+
+        // OPEN ONLY THIS ONE
+        $(this).closest('.mdc-expansion-panel').show();
+        $(this).closest('.mdc-expansion-panel')
+               .prev('[data-toggle="expansionPanel"]')
+               .addClass('expanded');
+    }
         }
       }
     });
