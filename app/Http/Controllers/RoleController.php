@@ -12,11 +12,11 @@ class RoleController extends Controller
      */
     public function index()
     {
-    //     $roles = Role::orderBy("id", "desc")->paginate(8);
-    // return view("pages.erp.role.index", ["roles" => $roles]);
+        $roles = Role::orderBy("id", "desc")->paginate(8);
+    return view("pages.erp.role.index", ["roles" => $roles]);
 
-    $roles = Role::with('employees')->orderBy('id', 'desc')->get();
-        return $roles;
+    // $roles = Role::with('employees')->orderBy('id', 'desc')->get();
+    //     return $roles;
     }
 
     /**
